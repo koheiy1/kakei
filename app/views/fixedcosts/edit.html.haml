@@ -1,7 +1,7 @@
-%h2 収入科目編集
-= form_for @income do |form|
-  =link_to incomes_path do
-    収入科目入力欄へ戻る
+%h2 固定費科目編集
+= form_for @fixedcost do |form|
+  =link_to fixedcosts_path do
+    固定費科目入力欄へ戻る
   %table
     %tr
       %th
@@ -14,4 +14,4 @@
       %td
         = form.text_field :supplement
       %div
-        = form.submit "収入編集"
+        = form.submit "固定費編集"
