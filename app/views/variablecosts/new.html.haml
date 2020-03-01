@@ -1,7 +1,7 @@
-%h2 収入科目編集
-= form_for @income do |form|
-  =link_to incomes_path do
-    収入科目入力欄へ戻る
+%h2 変動費科目登録
+= form_for @variablecost do |form|
+  =link_to variablecosts_path do
+    変動費科目入力欄へ戻る
   %table
     %tr
       %th
@@ -14,4 +14,4 @@
       %td
         = form.text_field :supplement
       %div
-        = form.submit "収入編集"
+        = form.submit "変動費登録"
