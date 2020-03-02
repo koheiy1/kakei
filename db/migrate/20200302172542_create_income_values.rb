@@ -4,6 +4,7 @@ class CreateIncomeValues < ActiveRecord::Migration[5.2]
       t.integer :income_id, null: false
       t.date :year_month
       t.integer :value
+      t.string :supplement
       t.timestamps
     end
   end

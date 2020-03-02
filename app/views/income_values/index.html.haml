@@ -1,5 +1,5 @@
 - require 'active_support/core_ext/numeric/conversions'
-%h2 収入科目の新規データ登録
+%h2 収入科目のデータ登録
 %p 登録年月を設定してください
 = form_tag({controller: :income_values, action: :new}, {method: :post}) do
   %input{:name => "year_month", :type => "month"}/
@@ -10,8 +10,8 @@
     %tr
       %th 登録年月
       %th 名称
-      %th 値
-      %th その他
+      %th 金額
+      %th 補足
       %th 操作
     - @income_values.each do |income_value|
       %tr
@@ -23,7 +23,7 @@
         %td= income_value.supplement
         %td
           = link_to "編集", [:edit, income_value]
-          = link_to "削除", income_value, method: :delete, data: { confirm: "本当に削除しますか？"}
+          |
+          \#{link_to "削除", income_value, method: :delete, data: { confirm: "本当に削除しますか？"}}
 - else
   %p 登録されているデータがありません。
-

@@ -16,6 +16,6 @@ module Kakei
     # -- all .rb files in that directory are automatically loaded after loading
     # the framework and any gems in your application.
 
-
+    config.action_controller.permit_all_parameters = true
   end
 end
