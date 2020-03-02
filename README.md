@@ -12,7 +12,7 @@
 |------|----|-------|
 |income_id|integer|null: false, foreign_key: true|
 |year_month|date||
-|money|integer||
+|value|integer||
 |supplement|string||
 ### Association
 - belongs_to :income
@@ -31,7 +31,7 @@
 |------|----|-------|
 |fixedcost_id|integer|null: false, foreign_key: true|
 |year_month|date||
-|money|integer||
+|value|integer||
 |supplement|string||
 ### Association
 - belongs_to :fixedcost
@@ -50,7 +50,7 @@
 |------|----|-------|
 |variablecost_id|integer|null: false, foreign_key: true|
 |year_month|date||
-|money|integer||
+|value|integer||
 |supplement|string||
 ### Association
 - belongs_to :variablecost
