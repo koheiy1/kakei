@@ -5,12 +5,13 @@ class IncomeValuesController < ApplicationController
   end
 
   def show
-    @income_values = IncomeValue.find(params[:id])
+    @income_value = IncomeValue.find(params[:id])
   end
 
   def new
     year_month_day = params[:year_month] + "-01"
     @year_month = year_month_day.to_date
+    
     @incomes = Income.order(created_at: :asc)
     @form = Form::IncomeForm.new
   end
@@ -25,21 +26,16 @@ class IncomeValuesController < ApplicationController
     if @form.save
       redirect_to :income_values, notice: "登録しました"
     else 
-      render "new"
+			redirect_to :income_values, notice: "登録に失敗しました"
     end
   end
-
-  private
 
   def income_form_params
     params.require(:form_income_form).permit(income_values_attributes: Form::IncomeValue::REGISTRABLE_ATTRIBUTES)
   end
 
- 
-
- 
   def update
-    @income_values = IncomeValue.find(params[:id])
+    @income_value = IncomeValue.find(params[:id])
     @income_value.assign_attributes(params[:income_value])
     if @income_value.save
       redirect_to :income_values, notice: "更新しました"
@@ -53,7 +49,4 @@ class IncomeValuesController < ApplicationController
     @income_value.destroy
     redirect_to :income_values, notice: "削除しました"
   end
-  
-  
-
 end
